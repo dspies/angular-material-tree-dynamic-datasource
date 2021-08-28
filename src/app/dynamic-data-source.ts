@@ -1,4 +1,4 @@
-import { CollectionViewer, SelectionChange } from '@angular/cdk/collections';
+import { CollectionViewer, DataSource, SelectionChange } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { BehaviorSubject, merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

@@ -20,6 +20,10 @@ import { DynamicFlatNode } from './dynamic-flat-node';
   styleUrls: ['tree-dynamic-example.css']
 })
 export class TreeDynamicExample {
+
+  treeControl: FlatTreeControl<DynamicFlatNode>;
+  dataSource: DynamicDataSource;
+
   constructor(database: DynamicDatabase) {
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(
       this.getLevel,
@@ -29,10 +33,6 @@ export class TreeDynamicExample {
 
     this.dataSource.data = database.initialData();
   }
-
-  treeControl: FlatTreeControl<DynamicFlatNode>;
-
-  dataSource: DynamicDataSource;
 
   getLevel = (node: DynamicFlatNode) => node.level;
 
