@@ -1,13 +1,14 @@
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DemoMaterialModule} from './app/material-module';
-
-import {TreeDynamicExample} from './app/tree-dynamic-example';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './app/home.component';
+import { DemoMaterialModule } from './app/material-module';
+import { StorageContainerTreeComponent } from './app/storage-container-tree/storage-container-tree.component';
+import { StorageContainerService } from './app/storage-container.service';
 
 @NgModule({
   imports: [
@@ -17,17 +18,18 @@ import {TreeDynamicExample} from './app/tree-dynamic-example';
     HttpClientModule,
     DemoMaterialModule,
     MatNativeDateModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
-  entryComponents: [TreeDynamicExample],
-  declarations: [TreeDynamicExample],
-  bootstrap: [TreeDynamicExample]
+  entryComponents: [HomeComponent],
+  declarations: [HomeComponent, StorageContainerTreeComponent],
+  providers: [StorageContainerService],
+  bootstrap: [HomeComponent]
 })
 export class AppModule {}
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
   .catch(err => console.error(err));
-
 
 /**  Copyright 2021 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
